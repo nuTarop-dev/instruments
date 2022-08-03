@@ -6,7 +6,7 @@ const init = function () {
     return sequelize.authenticate()
         .then(() => {
             const { Instrument } = require("../models");
-            return Promise.all([Instrument.sync]);
+            return Promise.all([Instrument.sync({alter: true})]);
         });
 }
 
