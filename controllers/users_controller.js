@@ -35,6 +35,6 @@ module.exports = {
 		if (!validPassword) {
 			return Promise.reject("Incorrect email or password.");
 		}
-		return Promise.resolve(true);
+		return Promise.resolve(user);
 	}
 };

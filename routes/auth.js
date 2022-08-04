@@ -1,10 +1,22 @@
 const express = require("express");
+const config = require("config");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 const { UsersController } = require("../controllers");
 
 const generateToken = (user) => {
-  //TODO
-  return "ok";
+  const token = jwt.sign(
+    {
+      user_id: user.id,
+      email: user.email,
+      instruments_access: user.instruments_access,
+    },
+    config.get("jwtPrivateKey"),
+    {
+      expiresIn: "1d"
+    }
+  );
+  return token;
 }
 
 router.post("/register", async (req, res) => {

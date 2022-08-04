@@ -1,0 +1,5 @@
+{
+    "jwtPrivateKey": "unsecureKeyDASVDFSGHSDGH2342",
+    "db": "postgres://user:password@localhost:5432/instruments",
+    "port": "8081"
+}

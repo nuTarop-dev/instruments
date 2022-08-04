@@ -1,6 +1,7 @@
 const { Sequelize } = require('sequelize');
+const config = require('config');
 
-const sequelize = new Sequelize('postgres://user:password@localhost:5432/instruments');
+const sequelize = new Sequelize(config.get("db"));
 
 const init = function () {
     return sequelize.authenticate()
