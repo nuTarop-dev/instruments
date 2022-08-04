@@ -3,6 +3,7 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const { UsersController } = require("../controllers");
+const auth = require("../middleware/auth");
 
 const generateToken = (user) => {
   const token = jwt.sign(
@@ -36,5 +37,9 @@ router.post("/login", async (req, res) => {
       res.status(400).send(error);
     });
 });
+
+router.get("/session_verify", [auth], (req, res) => {
+  res.status(200).send("Ok");
+})
 
 module.exports = router;
