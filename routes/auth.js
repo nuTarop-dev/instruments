@@ -14,7 +14,7 @@ const generateToken = (user) => {
     },
     config.get("jwtPrivateKey"),
     {
-      expiresIn: "1d"
+      expiresIn: "1y"
     }
   );
   return token;

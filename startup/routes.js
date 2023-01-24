@@ -1,9 +1,8 @@
 const express = require("express");
-const { instruments } = require("../routes")
-const { auth } = require("../routes")
+const { auth, animals } = require("../routes");
 
 module.exports = function (app) {
     app.use(express.json());
-    app.use("/instruments", instruments);
-    app.use("/users", auth);
+    app.use("/animals", animals);
+    app.use("/auth", auth);
 }
